@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<!-- <title>Series and Parallel Circuit Simulation</title> -->
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Link of CSS files -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/flaticon.css">
+    <link rel="stylesheet" href="assets/css/remixicon.css">
+    <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="assets/css/fancybox.css">
+    <link rel="stylesheet" href="assets/css/jquery-ui-min.css">
+    <link rel="stylesheet" href="assets/css/aos.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/dark-theme.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+    <title>Simulador electroSim</title>
+    <link rel="icon" type="image/png" href="assets/img/favicon.png">
+<style>
+.preload {
+    display: none;
+}
+.contenedor {
+    padding: 20px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Divide el grid en dos columnas iguales */
+    justify-content: center; /* Centra el contenido horizontalmente */
+    align-items: center; /* Centra el contenido verticalmente */
+        min-height: 700px;/* Opcional: Altura total de la ventana de visualización */
+        gap: 20px;
+}
+
+.elemento-a, .elemento-b {
+    padding: 20px; /* Espaciado interno para los elementos */
+ /* Borde para visualizar los elementos */
+}
+</style>
+</head>
+
+<body>
+    <div class="page-wrapper">  
+    <header class="header-wrap style2">
+        <div class="container">
+            <nav class="navbar navbar-expand-md navbar-light">
+                <a class="navbar-brand" href="index.html">
+                    <img  class="logo-light" src="assets/img/logo.png" alt="logo">
+                    <img  class="logo-dark" src="assets/img/logo-white.png" alt="logo">
+                </a>
+                <div class="collapse navbar-collapse main-menu-wrap" id="navbarSupportedContent">
+                    <div class="menu-close d-lg-none">
+                        <a href="javascript:void(0)"> <i class="ri-close-line"></i></a>
+                    </div>
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a href="index.html" class="nav-link">
+                                Inicio
+                                <!-- <i class="ri-add-line"></i> -->
+                            </a>
+                            <!-- <ul class="dropdown-menu">
+                                <li class="nav-item">
+                                    <a href="index.html" class="nav-link">Home One</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="index-2.html" class="nav-link">Home Two</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="index-3.html" class="nav-link active">Home Three</a>
+                                </li>
+                            </ul> -->
+                        </li>
+                        <li class="nav-item">
+                            <a href="about.html" class="nav-link">
+                                Nosotros
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="explore-auction.html" class="nav-link">
+                                Marketplace
+                                <i class="ri-add-line"></i>
+                            </a>
+                            <!-- <ul class="dropdown-menu">
+                                <li class="nav-item">
+                                    <a href="explore-auction.html" class="nav-link">Explore Auction</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="live-auction.html" class="nav-link ">Live Auction</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="item-details.html" class="nav-link">Item Details</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="item-ranking.html" class="nav-link">Item Ranking</a>
+                                </li>
+                            </ul> -->
+                        </li>
+                        <!-- <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                Pages
+                                <i class="ri-add-line"></i>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link">
+                                       Author
+                                       <i class="ri-add-line"></i>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li class="nav-item">
+                                            <a href="authors.html" class="nav-link">Author List</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="author-profile.html" class="nav-link">Author Profile</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="add-wallet.html" class="nav-link">Add Wallet</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="activity.html" class="nav-link">Recent Activity</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="collection.html" class="nav-link">Collection</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="create-collection.html" class="nav-link">Create Collection</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="team.html" class="nav-link">Team</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="testimonials.html" class="nav-link">Testimonials</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link">
+                                        User Pages
+                                        <i class="ri-add-line"></i>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li class="nav-item">
+                                            <a href="login.html" class="nav-link">Login</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="register.html" class="nav-link">Register</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="recover-password.html" class="nav-link">Recover Password</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="terms-of-service.html" class="nav-link">Terms of Service</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="privacy-policy.html" class="nav-link">Privacy Policy</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="error-404.html" class="nav-link">404 Error Page</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                Blog
+                                <i class="ri-add-line"></i>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link">
+                                        Blog Layout
+                                        <i class="ri-add-line"></i>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li class="nav-item">
+                                            <a href="blog-no-sidebar.html" class="nav-link">Blog Grid</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="blog-left-sidebar.html" class="nav-link">Blog Left Sidebar</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="blog-right-sidebar.html" class="nav-link">Blog Right Sidebar</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link">
+                                        Single Blog
+                                        <i class="ri-add-line"></i>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li class="nav-item">
+                                            <a href="blog-details-no-sidebar.html" class="nav-link">Blog Details No Sidebar</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="blog-details-left-sidebar.html" class="nav-link">Blog Details Left Sidebar</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="blog-details-right-sidebar.html" class="nav-link">Blog Details Right Sidebar</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li> -->
+                        <!-- <li class="nav-item">
+                            <a href="contact.html" class="nav-link">Contactenos</a>
+                        </li> -->
+                        <li class="nav-item d-lg-none">
+                            <a href="add-wallet.html" class="btn style1">Connect Wallet</a>
+                        </li>
+                    </ul>
+                    <div class="others-options  md-none">
+                        <button class="searchbtn"><i class="ri-search-line"></i></button>
+                    </div>
+                    <!-- <div class="others-options  md-none">
+                        <div class="header-btn">
+                            <a href="add-wallet.html" class="btn style1">Connect Wallet</a>
+                        </div>
+                    </div> -->
+                </div>
+            </nav>
+            <div class="mobile-bar-wrap">
+                <button class="searchbtn d-lg-none"><i class="ri-search-line"></i></button>
+                <div class="mobile-menu d-lg-none">
+                    <a href="javascript:void(0)"><i class="ri-menu-line"></i></a>
+                </div>
+            </div>
+        </div>
+    </header>
+<div style="">
+
+<!-- <p>This is a simple circuit simulation designed for science classes using JavaScript and HTML5. To accommodate a wide range of students including Primary school students, a very simple user interface was used. You can modify the circuit by dragging and dropping the bulb or the wire, or toggling the switch. For example, you can drag the bulb or the wire above the series circuit and replace the bulb in the circuit or you can remove the bulb in the circuit by dragging it out. You can turn the switch on or off by clicking the switch. The battery cannot be changed. If you want to see, the voltage(V), current(A), and wattage(W), you can click the button to show the information. For simplicity, the resistance of the light bulb is assumed to be invariant regardless of power consumption. In reality, the resistance varies by the power consumption.</p>
+<p>This circuit simulation is also designed for mobile devices and can be controlled using touch interface. For a reliable operation inside the circuit simulation box, multi-touch is disabled inside the box. If you want to zoom in or out, you need to use the finger jesture outside the simulation box.</p>
+<h3>Series Circuit</h3>
+<p>This is a demonstration of a simple series circuit. You can create a series circuit with a combination of 1, 2, 3 ohm resistors and a wire. The light generated by the light bulb is proportional to the power consumption. If you replace two bulbs with a wire and use 1 ohm light bulb, the maximum brightness (9 Watt) can be obtained. If you replace all light bulbs with 3 ohm light bulbs, you will get the lowest brightness (0.33 Watt).</p> -->
+<!-- <div id='myDiv1'>
+<canvas id="myCanvas1" width="600" height="460" style="border:1px solid #C0C0C0;">
+Your browser does not support the HTML5 canvas tag.
+</canvas>
+</div> -->
+<!-- <h3>Parallel Circuit</h3>
+<p>This is a demonstration of a simple parallel circuit. The behaviour of parallel circuits are not always easy to predict. For example, if you replace a 1 ohm light bulb of the parallel part of the circuit with a 3 ohm light bulb, the power consumption of the other light bulb of the parallel circuit will increase.</p> -->
+
+
+<div class="content-wrapper">
+    <h1 style="text-align: center; padding-top: 70px;">Circuito en Paralelo y Serie</h1>
+    <div style="display: flex; justify-content: center; width: 100%;">
+        <div class="contenedor">
+            <div id='myDiv1' style="box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1); min-width: 600px; min-height: 600;" class="elemento-a">
+                <canvas id="myCanvas1" width="600" height="460" style="border:1px solid #fff;">
+                    Your browser does not support the HTML5 canvas tag.
+                </canvas>
+            </div>
+            <div id='myDiv2'style="box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1); min-width: 600px; min-height: 600;"  class="elemento-b">
+                <canvas id="myCanvas2"  width="600" height="460" style="border:1px solid #fff;">
+                    Your browser does not support the HTML5 canvas tag.
+                </canvas>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+</div>
+      <!-- Footer Section Start -->
+      <footer class="footer-wrap bg-f pt-100 ">
+        <img src="assets/img/section-shape-1.png" alt="Image" class="section-shape">
+        <div class="container">
+            <div class="row pb-75">
+                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 pe-xl-5">
+                    <div class="footer-widget">
+                       <a href="index.html" class="footer-logo">
+                           <img src="assets/img/logo-white.png" alt="Image">
+                        </a>
+                        <p class="comp-desc">
+                            Lorem ipsum dolor sit amet consec tetur aditonsi soom isotope elit esumo tempo incidunt labore dolore magna aliqu core tetur adip iscing.
+                        </p>
+                        <ul class="social-profile list-style style1">
+                            <li>
+                                <a target="_blank" href="https://facebook.com">
+                                    <i class="flaticon-facebook"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a target="_blank" href="https://twitter.com">
+                                    <i class="flaticon-twitter"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a target="_blank" href="https://instagram.com">
+                                    <i class="flaticon-instagram"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a target="_blank" href="https://linkedin.com">
+                                    <i class="flaticon-linkedin"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+               <div class="col-xl-3 col-lg-2 col-md-6 col-sm-6">
+                    <div class="footer-widget">
+                        <h3 class="footer-widget-title">Marketplace</h3>
+                        <ul class="footer-menu list-style">
+                            <li>
+                                <a href="explore-auction.html" target="_blank">
+                                    <i class="flaticon-next-1"></i>
+                                   Art
+                                </a>
+                            </li>
+                            <li>
+                                <a href="explore-auction.html" target="_blank">
+                                    <i class="flaticon-next-1"></i>
+                                   All NFTs
+                                </a>
+                            </li>
+                            <li>
+                                <a href="explore-auction.html" target="_blank">
+                                    <i class="flaticon-next-1"></i>
+                                Music
+                                </a>
+                            </li>
+                            <li>
+                                <a href="explore-auction.html" target="_blank">
+                                    <i class="flaticon-next-1"></i>
+                                   Trending Card
+                                </a>
+                            </li>
+                            <li>
+                                <a href="explore-auction.html" target="_blank">
+                                    <i class="flaticon-next-1"></i>
+                                    Virtual World
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 ps-xl-4 ps-lg-5">
+                    <div class="footer-widget">
+                        <h3 class="footer-widget-title">Resources</h3>
+                        <ul class="footer-menu list-style">
+                            <li>
+                                <a href="contact.html" target="_blank">
+                                    <i class="flaticon-next-1"></i>
+                                  Help &amp; Support
+                                </a>
+                            </li>
+                            <li>
+                                <a href="live-auction.html" target="_blank">
+                                    <i class="flaticon-next-1"></i>
+                                   Live Auction
+                                </a>
+                            </li>
+                            <li>
+                                <a href="item-details.html" target="_blank">
+                                    <i class="flaticon-next-1"></i>
+                                Item Details
+                                </a>
+                            </li>
+                            <li>
+                                <a href="activity.html" target="_blank">
+                                    <i class="flaticon-next-1"></i>
+                                   Activity
+                                </a>
+                            </li>
+                            <li>
+                                <a href="collection.html" target="_blank">
+                                    <i class="flaticon-next-1"></i>
+                                    Collection Card
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+               <div class="col-xl-2 col-lg-3 col-md-6 col-sm-6">
+                    <div class="footer-widget">
+                        <h3 class="footer-widget-title">Company</h3>
+                        <ul class="footer-menu list-style">
+                            <li>
+                                <a href="about.html" target="_blank">
+                                    <i class="flaticon-next-1"></i>
+                                  About Us
+                                </a>
+                            </li>
+                            <li>
+                                <a href="contact.html" target="_blank">
+                                    <i class="flaticon-next-1"></i>
+                                   Contact Us
+                                </a>
+                            </li>
+                            <li>
+                                <a href="blog-left-sidebar.html" target="_blank">
+                                    <i class="flaticon-next-1"></i>
+                                    Latest News
+                                </a>
+                            </li>
+                            <li>
+                                <a href="privacy-policy.html" target="_blank">
+                                    <i class="flaticon-next-1"></i>
+                                   privacy Policy
+                                </a>
+                            </li>
+                            <li>
+                                <a href="terms-of-service.html" target="_blank">
+                                    <i class="flaticon-next-1"></i>
+                                    Terms &amp; Conditions
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <p class="copyright-text">
+                <i class="ri-copyright-line"></i><script>document.write(new Date().getFullYear())</script> <span>Nedo</span>. All Rights Reserved By <a href="https://hibootstrap.com/" target="_blank">HiBootstrap</a>
+            </p>
+        </div>
+    </footer>
+    <!-- Footer Section End -->
+</div>  
+<script type="text/javascript" src="circuit.js"></script>
+<script type="text/javascript">
+</script>
+</body>
+</html>
